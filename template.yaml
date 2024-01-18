@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Puppetter website screenshot
+
+Resources:
+  PuppyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      BinaryMediaTypes:
+        - '*~1*'
+
+  PuppyLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs18.x
+      MemorySize: 1024
+      Timeout: 15
+      FunctionName: PuppyLambda
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /screenshot
+            Method: GET
+            RestApiId:
+              Ref: PuppyApi
