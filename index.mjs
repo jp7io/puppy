@@ -18,9 +18,9 @@ export const handler = async (event) => {
     };
   }
 
-  const body = await screenshot(url);
-
   try {
+    const body = await screenshot(url);
+
     return {
       statusCode: 200,
       headers: {
