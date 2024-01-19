@@ -17,7 +17,7 @@ sam local start-api
 ## Screenshot using local environment
 
 ```bash
-curl -s "http://localhost:3000/screenshot?url=https://www.example.com" -o image.png
+curl -s "http://localhost:3000/screenshot?url=https://www.example.com" -o screenshot.png
 ```
 
 ## First deploy
