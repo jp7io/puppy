@@ -20,5 +20,7 @@ export const screenshot = async (url) => {
 
   const buffer = await page.screenshot();
 
+  await browser.close();
+
   return buffer.toString('base64');
 };
